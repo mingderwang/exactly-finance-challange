@@ -5,7 +5,7 @@
   "scripts": {
      "compile": "npx hardhat compile",
      "deploy": "npx hardhat run scripts/deploy.ts",
-     "verify": "npx hardhat verify <DEPLOYED_CONTRACT_ADDRES>" 
+     "verify": "npx hardhat verify 0x599E6C043921387E3617f1555c39991E0d431167" 
    },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",

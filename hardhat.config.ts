@@ -23,14 +23,14 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 // Go to https://hardhat.org/config/ to learn more
 
 const config: HardhatUserConfig = {
-  defaultNetwork: "hardhat",
+  defaultNetwork: "ropsten",
 solidity: {
     compilers: [
       {
         version: "0.7.6",
       },
       {
-        version: "0.8.11",
+        version: "0.8.2",
         settings: {},
       },
     ],

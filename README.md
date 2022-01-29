@@ -1,3 +1,20 @@
+# verify contract on Ropsten testnet
+```
+➜  exactly-finance-challange git:(master) ✗ yarn verify
+yarn run v1.22.17
+$ npx hardhat verify 0x599E6C043921387E3617f1555c39991E0d431167
+Nothing to compile
+No need to generate any newer typings.
+Compiling 1 file with 0.8.2
+Successfully submitted source code for contract
+contracts/ETHPool.sol:ETHPool at 0x599E6C043921387E3617f1555c39991E0d431167
+for verification on Etherscan. Waiting for verification result...
+
+Successfully verified contract ETHPool on Etherscan.
+https://ropsten.etherscan.io/address/0x599E6C043921387E3617f1555c39991E0d431167#code
+✨  Done in 38.41s.
+```
+
 # Advanced Sample Hardhat Project
 
 This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
