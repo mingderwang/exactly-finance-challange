@@ -20,8 +20,15 @@ https://ropsten.etherscan.io/address/0x599E6C043921387E3617f1555c39991E0d431167#
 This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
 
 The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
+# smart contract structure
+we need to build three of methods : 
+1- Receive Deposit in pool
+2- Withdraw fund from pool method 
+3- Deposit Rewards to distribute rewards in pool ( managing team )
+use oppen zeppein access control it support team Roles 
+we need to add events we need in this smart contract to add two event to call (deposit & withdraw ) methods
 
-Try running some of the following tasks:
+# Advanced Sample Hardhat Project
 
 ```shell
 npx hardhat accounts
@@ -29,18 +36,9 @@ npx hardhat compile
 npx hardhat clean
 npx hardhat test
 npx hardhat node
+node scripts/sample-script.js
 npx hardhat help
-REPORT_GAS=true npx hardhat test
-npx hardhat coverage
-npx hardhat run scripts/deploy.ts
-TS_NODE_FILES=true npx ts-node scripts/deploy.ts
-npx eslint '**/*.{js,ts}'
-npx eslint '**/*.{js,ts}' --fix
-npx prettier '**/*.{json,sol,md}' --check
-npx prettier '**/*.{json,sol,md}' --write
-npx solhint 'contracts/**/*.sol'
-npx solhint 'contracts/**/*.sol' --fix
-```
+
 
 # Etherscan verification
 

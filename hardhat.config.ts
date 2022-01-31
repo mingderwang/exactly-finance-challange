@@ -37,7 +37,7 @@ solidity: {
   },
   networks: {
     ropsten: {
-      url: process.env.ROPSTEN_URL || "",
+      url: process.env.ROPSTEN_URL || "https://ropsten.infura.io/ws/v3/3183d4b239ab4c18b52ec867a4f2d5ea",
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
