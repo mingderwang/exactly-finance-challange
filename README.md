@@ -15,11 +15,6 @@ https://ropsten.etherscan.io/address/0x599E6C043921387E3617f1555c39991E0d431167#
 ✨  Done in 38.41s.
 ```
 
-# Advanced Sample Hardhat Project
-
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
-
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
 # smart contract structure
 we need to build three of methods : 
 1- Receive Deposit in pool
