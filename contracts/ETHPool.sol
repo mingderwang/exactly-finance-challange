@@ -62,6 +62,7 @@ contract ETHPool is AccessControl {
         (bool success, ) = msg.sender.call{value:deposit}("");
   
         require(success, "Transfer failed");
+        total = total - deposit;
 
         emit Withdraw(msg.sender, deposit);
     }
