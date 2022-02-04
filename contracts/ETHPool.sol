@@ -35,7 +35,8 @@ contract ETHPool is AccessControl {
         deposits[msg.sender].hasValue = true;
 
         total += msg.value;
-
+        console.log("receive()", msg.value);
+        console.log("total after received", total);
         emit Deposit(msg.sender, msg.value);
     }
     
@@ -50,9 +51,9 @@ contract ETHPool is AccessControl {
            uint rewards = ((deposits[user].value * msg.value) / total);
 
            deposits[user].value += rewards;
-           console.log("*** deposits[user].value", deposits[user].value);
+           console.log("-- >> new deposits[user].value", deposits[user].value);
         }
-       console.log(" ---  start depositRewords, total = ", total); 
+       console.log(" ---  start depositRewords, old total = ", total); 
        total += msg.value;
        console.log(" ---  start depositRewords, new total = ", total); 
 
@@ -63,15 +64,15 @@ contract ETHPool is AccessControl {
         require(deposit > 0, "You don't have anything left to withdraw");
 
         console.log("withdraw" ,  deposit);
-        console.log("total", total);
+        console.log("total was:", total);
         
         deposits[msg.sender].value = 0;
         (bool success, ) = msg.sender.call{value:deposit}("");
   
         require(success, "Transfer failed");
-        console.log("total after withdraw", total);
         require( total >= deposit, "total is smaller than deposit when withdraw");
         unchecked { total -= deposit; }
+        console.log("total after withdraw", total);
         emit Withdraw(msg.sender, deposit);
     }
 
