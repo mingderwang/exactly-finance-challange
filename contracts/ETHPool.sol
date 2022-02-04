@@ -1,5 +1,5 @@
 //SPDX-License-Identifier: Unlicense
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.11;
 
 import "hardhat/console.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
@@ -41,6 +41,7 @@ contract ETHPool is AccessControl {
     
     function depositRewards() public payable onlyRole(TEAM_MEMBER_ROLE) {
         require(total > 0); // No rewards to distribute if the pool is empty.
+        console.log(" ---  start depositRewords", msg.value);
 
         for (uint i = 0; i < users.length; i++){
             
@@ -49,21 +50,28 @@ contract ETHPool is AccessControl {
            uint rewards = ((deposits[user].value * msg.value) / total);
 
            deposits[user].value += rewards;
+           console.log("*** deposits[user].value", deposits[user].value);
         }
+       console.log(" ---  start depositRewords, total = ", total); 
+       total += msg.value;
+       console.log(" ---  start depositRewords, new total = ", total); 
+
     }
 
     function withdraw() public {
         uint256 deposit = deposits[msg.sender].value;
-        
         require(deposit > 0, "You don't have anything left to withdraw");
 
+        console.log("withdraw" ,  deposit);
+        console.log("total", total);
+        
         deposits[msg.sender].value = 0;
-
         (bool success, ) = msg.sender.call{value:deposit}("");
   
         require(success, "Transfer failed");
-        total = total - deposit;
-
+        console.log("total after withdraw", total);
+        require( total >= deposit, "total is smaller than deposit when withdraw");
+        unchecked { total -= deposit; }
         emit Withdraw(msg.sender, deposit);
     }
 
